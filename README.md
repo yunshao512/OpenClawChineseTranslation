@@ -2,10 +2,27 @@
 
 [![Release](https://img.shields.io/github/v/release/1186258278/OpenClawChineseTranslation?label=稳定版)](https://github.com/1186258278/OpenClawChineseTranslation/releases)
 [![npm](https://img.shields.io/npm/v/@qingchencloud/openclaw-zh?label=npm)](https://www.npmjs.com/package/@qingchencloud/openclaw-zh)
+[![Nightly Build](https://github.com/1186258278/OpenClawChineseTranslation/actions/workflows/nightly.yml/badge.svg)](https://github.com/1186258278/OpenClawChineseTranslation/actions/workflows/nightly.yml)
 [![Platform](https://img.shields.io/badge/平台-Windows%20|%20macOS%20|%20Linux-blue)](https://github.com/1186258278/OpenClawChineseTranslation/releases)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-> 🦞 **OpenClaw 汉化发行版** | ⚡️ **每小时自动同步官方更新** | 全自动构建发布
+<table>
+<tr>
+<td>
+
+### 🔄 实时同步官方更新
+
+| 特性 | 说明 |
+|:---:|:---|
+| ⏰ **每小时同步** | CI/CD 自动从上游 [openclaw](https://github.com/anthropics/claude-code) 拉取最新代码 |
+| 🚀 **自动构建发布** | 同步后立即构建 npm 包 + Docker 镜像，无需等待 |
+| 📦 **双版本可选** | `nightly`（最新功能）/ `stable`（稳定版） |
+
+> 💡 **延迟 < 1 小时**：官方发布新功能后，汉化版最快 1 小时内可用！
+
+</td>
+</tr>
+</table>
 
 <p align="center">
   <a href="https://openclaw.qt.cool/"><img src="https://img.shields.io/badge/🔥_官方网站-openclaw.qt.cool-dc2626?style=for-the-badge" alt="官方网站"></a>
