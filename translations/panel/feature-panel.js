@@ -216,13 +216,38 @@
     }, 3000);
   }
 
-  // 复制到剪贴板
+  // 复制到剪贴板（支持 HTTP 环境的 fallback）
   async function copyToClipboard(text) {
+    // 优先尝试现代 Clipboard API
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(text);
+        showToast('已复制到剪贴板', 'success');
+        return;
+      } catch (err) {
+        // 继续尝试 fallback
+      }
+    }
+    
+    // Fallback: 使用 execCommand（支持 HTTP 环境）
     try {
-      await navigator.clipboard.writeText(text);
-      showToast('已复制到剪贴板', 'success');
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.cssText = 'position:fixed;left:-9999px;top:-9999px;opacity:0;';
+      document.body.appendChild(textarea);
+      textarea.select();
+      textarea.setSelectionRange(0, 99999); // 移动端支持
+      const success = document.execCommand('copy');
+      document.body.removeChild(textarea);
+      
+      if (success) {
+        showToast('已复制到剪贴板', 'success');
+      } else {
+        throw new Error('execCommand failed');
+      }
     } catch (err) {
-      showToast('复制失败', 'error');
+      // 最后的 fallback：让用户手动复制
+      showToast(`请手动复制: ${text}`, 'info');
     }
   }
 
